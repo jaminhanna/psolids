@@ -225,7 +225,27 @@ a few commands not shown in the previous example:
   $ jgraph -P j.in >junk.ps; open junk.ps
   ```
 
+Here is the output:
 
+![Alt_text](img/img2.jpg)
+
+One thing is worth nothing here. The matching of faces to
+face ids is more or less intuitive with the tetrahedron,
+hexahedron, and octahedron, but not at all with the dodecahedron
+and icosahedron. When there is time for it, an image will be
+provided that maps face ids to their corresponding faces. For
+the time being, the procedures get_shapename() where shapename
+is the name of a platonic solid can be studied in order to do
+the mapping oneself.
+
+A last example is included with the intent of showing the extent
+to which the appearance of a shape may be manipulated using
+psolids. Some of what is shown requires a brute-force method of
+editing, trying to do what one can using what the program gives
+you. Perhaps the program can be polished over time to become
+more of a pleasure to use.
+
+![Alt_text](img/img3.jpg)
 
 
 
