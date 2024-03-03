@@ -27,7 +27,7 @@ void print_shape(Psolid *ps, char *cmd, int num)
       putchar(*cmdp++);
     }
     if (ps->order[i]->colored == 1)
-      printf("(* %d *)   color %.6lf %.6lf %.6lf\n", num, r, g, b);
+      printf("(* %d *)   pcfill %.6lf %.6lf %.6lf\n", num, r, g, b);
     /* print points */
     printf("(* %d *)   pts\n", num);
     for (j = 0; ps->order[i]->pts[j] != NULL; ++j) {

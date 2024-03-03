@@ -192,8 +192,8 @@ int main(int argc, char *argv[])
       }
       /* perform necessary rotations */
       if (ps.roll  != 0.0)  roll_shape(&ps,  ps.roll);
-      if (ps.pitch != 0.0) pitch_shape(&ps, ps.pitch);
-      if (ps.yaw   != 0.0)   yaw_shape(&ps,   ps.yaw);
+      if (ps.pitch != 0.0) pitch_shape(&ps, -ps.pitch);
+      if (ps.yaw   != 0.0)   yaw_shape(&ps,   -ps.yaw);
       /* determine the positions of the faces, sort them according to
          their positions, center the shape, and print */
       get_sums    (&ps);
