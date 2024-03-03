@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
   char        *keyword;
   Psolid            ps;
 
-  nshapes = 0;
+  isdeg = nshapes = 0;
   used[MAXFACES+NCOMMANDS-1] = SENTINEL;
   /* read from stdin or specified files */
   switch (argc) {
@@ -112,14 +112,16 @@ int main(int argc, char *argv[])
           if (getword()              == 0 ||
               strcmp(buf, "degrees") == 0 ||
               strcmp(buf, "radians") == 0) {
+            /* get whether degrees or radians */
+            if (buf[0] == 'd') isdeg = 1;
             /* a double should follow 'degrees' or 'radians' */
             if (getword() == 0 || sscanf(buf, "%lf", rp) == 0) {
               fprintf(stderr, "%s: A double must follow '%s' token\n",
-                      name, (buf[0] == 'd') ? "degrees" : "radians");
+                      name, (isdeg == 1) ? "degrees" : "radians");
               return EXIT_FAILURE;
             }
             /* convert degrees to radians */
-            if (buf[0] == 'd') *rp = degtorad(*rp);
+            if (isdeg == 1) { *rp = degtorad(*rp); isdeg = 0; }
           } else if (sscanf(buf, "%lf", rp) != 1) {
             fprintf(stderr, "%s: 'degrees' or 'radians' or a double"
                             " must follow '%s'\n", name, keyword);
