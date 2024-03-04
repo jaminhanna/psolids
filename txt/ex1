@@ -4,6 +4,7 @@ yaxis min -100 max 100 nodraw
 
 shell : echo newshape dodecahedron  >psolids.in
 shell : echo edgelength 234        >>psolids.in
+shell : echo linethickness 9       >>psolids.in
 shell : echo marktype circle       >>psolids.in
 shell : echo cfill 0.898 1 0.8     >>psolids.in
 shell : echo color 0.8 0.8 1       >>psolids.in
