@@ -10,4 +10,4 @@ shell : echo color 0.8 0.8 1       >>psolids.in
 shell : echo roll 1234             >>psolids.in
 shell : echo pitch 1234            >>psolids.in
 shell : echo yaw 1234              >>psolids.in
-shell : psolids psolids.in
+shell : ./psolids psolids.in
