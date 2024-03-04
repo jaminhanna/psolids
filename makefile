@@ -6,11 +6,11 @@ psolids: main.o getword.o getjgraph.o degtorad.o get_tetrahedron.o \
 	get_hexahedron.o get_octahedron.o get_dodecahedron.o \
 	get_icosahedron.o rotate.o get_sums.o sort_faces.o center_shape.o \
 	print_shape.o -o psolids -lm
-	jgraph -P txt/ex1 >jgr.ps; ps2pdf jgr.ps; mv jgr.pdf img/ex1.pdf
-        jgraph -P txt/ex2 >jgr.ps; ps2pdf jgr.ps; mv jgr.pdf img/ex2.pdf
-        jgraph -P txt/ex3 >jgr.ps; ps3pdf jgr.ps; mv jgr.pdf img/ex3.pdf
-        jgraph -P txt/ex4 >jgr.ps; ps4pdf jgr.ps; mv jgr.pdf img/ex4.pdf
-        jgraph -P txt/ex5 >jgr.ps; ps5pdf jgr.ps; mv jgr.pdf img/ex5.pdf
+	jgr.pdf img/ex1.pdf
+	jgr.pdf img/ex2.pdf
+	jgr.pdf img/ex3.pdf
+	jgr.pdf img/ex4.pdf
+	jgr.pdf img/ex5.pdf
 main.o:
 	cc -Iinclude -c src/main.c -o main.o
 getword.o:
