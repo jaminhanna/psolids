@@ -1,3 +1,7 @@
+FOR THE TA (COMPILATION INSTRUCTIONS):
+  - type make
+  - look in img/ for example images ex1, ex2, ..., ex5
+
 Psolids is a filter for generating platonic solid specifications in the
 form of input to Jgraph, a filter for plotting graphs in PostScript:
 https://web.eecs.utk.edu/~jplank/plank/jgraph/jgraph.html.
@@ -251,48 +255,5 @@ with particular parts of the output of psolids, as the following
 example demonstrates:
 
   ```
-  $ echo newshape tetrahedron | psolids | head
-  (* 1,0 *)   newline poly
-  (* 1,0 *)   pcfill 0.387520 0.544867 0.084722
-  (* 1,0 *)   pts
-  (* 1,0 *)           0.000000    44.090815
-  (* 1,0 *)          36.000000   -14.696938
-  (* 1,0 *)         -36.000000   -14.696938
-
-  (* 1,1 *)   newline poly
-  (* 1,1 *)   pcfill 0.548829 0.418811 0.873585
-  (* 1,1 *)   pts
-  $
-  $ # the above shows the specification of the first face of the
-  $ # tetrahedron, and three lines of that of the second face.
-  $ # knowing how many points compose a face of a dodecahedron (five), we
-  $ # can easily view the locations of the vertices that compose
-  $ # the fifth face of the dodecahedron with default position and size:
-  $
-  $ echo newshape dodecahedron | psolids | grep '1,4' | tail -n 5
-  (* 1,4 *)           0.000000    47.124612
-  (* 1,4 *)          29.124612    29.124612
-  (* 1,4 *)          47.124612    18.000000
-  (* 1,4 *)          29.124612    29.124612
-  (* 1,4 *)           0.000000    47.124612
-  $
-  $ # the grep gave us the fifth face (since faces are zero-indexed) of
-  $ # the first shape. we used tail -n 5 since we knew the last five
-  $ # lines that contain the regular expression "1,4" correspond to the
-  $ # locations of the vertices
-  $
-  $ # get the colors (which will be random) of the last five faces
-  $ # (faces with face ids 15-19) of the default icosahedron:
-  $
-  $ echo newshape icosahedron | psolids | grep pcfill | tail -n 5
-  16	(* 1,15 *)   pcfill 0.476352 0.837873 0.252883
-  17	(* 1,16 *)   pcfill 0.336508 0.768383 0.892267
-  18	(* 1,17 *)   pcfill 0.936246 0.853985 0.328381
-  19	(* 1,18 *)   pcfill 0.357412 0.524081 0.731242
-  20	(* 1,19 *)   pcfill 0.447281 0.369753 0.055368
-  $
-  $ # lastly, create two identical octahedrons, with one up and to
-  $ # the right of the other, and remove a half from each to produce
-  $ # an image of a split octahedron with its halves separated:
-  $
-  $ 
+  To be included at a later time.
+  ```
