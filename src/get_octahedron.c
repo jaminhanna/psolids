@@ -32,6 +32,7 @@ void get_octahedron(Psolid *psolid)
   psolid->faces[0].pts[1]  = &psolid->pts[0];
   psolid->faces[0].pts[2]  = &psolid->pts[1];
   psolid->faces[0].pts[3]  =  NULL;
+  psolid->faces[0].id      =    0;
   psolid->faces[0].sum     =  0.0;
   psolid->faces[0].sum    +=  psolid->pts[4].x;
   psolid->faces[0].sum    +=  psolid->pts[0].x;
@@ -42,6 +43,7 @@ void get_octahedron(Psolid *psolid)
   psolid->faces[1].pts[1]  = &psolid->pts[1];
   psolid->faces[1].pts[2]  = &psolid->pts[2];
   psolid->faces[1].pts[3]  =  NULL;
+  psolid->faces[1].id      =    1;
   psolid->faces[1].sum     =  0.0;
   psolid->faces[1].sum    +=  psolid->pts[4].x;
   psolid->faces[1].sum    +=  psolid->pts[1].x;
@@ -52,6 +54,7 @@ void get_octahedron(Psolid *psolid)
   psolid->faces[2].pts[1]  = &psolid->pts[2];
   psolid->faces[2].pts[2]  = &psolid->pts[3];
   psolid->faces[2].pts[3]  =  NULL;
+  psolid->faces[2].id      =    2;
   psolid->faces[2].sum     =  0.0;
   psolid->faces[2].sum    +=  psolid->pts[4].x;
   psolid->faces[2].sum    +=  psolid->pts[2].x;
@@ -62,6 +65,7 @@ void get_octahedron(Psolid *psolid)
   psolid->faces[3].pts[1]  = &psolid->pts[3];
   psolid->faces[3].pts[2]  = &psolid->pts[0];
   psolid->faces[3].pts[3]  =  NULL;
+  psolid->faces[3].id      =    3;
   psolid->faces[3].sum     =  0.0;
   psolid->faces[3].sum    +=  psolid->pts[4].x;
   psolid->faces[3].sum    +=  psolid->pts[3].x;
@@ -72,6 +76,7 @@ void get_octahedron(Psolid *psolid)
   psolid->faces[4].pts[1]  = &psolid->pts[5];
   psolid->faces[4].pts[2]  = &psolid->pts[1];
   psolid->faces[4].pts[3]  =  NULL;
+  psolid->faces[4].id      =    4;
   psolid->faces[4].sum     =  0.0;
   psolid->faces[4].sum    +=  psolid->pts[0].x;
   psolid->faces[4].sum    +=  psolid->pts[5].x;
@@ -82,6 +87,7 @@ void get_octahedron(Psolid *psolid)
   psolid->faces[5].pts[1]  = &psolid->pts[5];
   psolid->faces[5].pts[2]  = &psolid->pts[2];
   psolid->faces[5].pts[3]  =  NULL;        
+  psolid->faces[5].id      =    5;
   psolid->faces[5].sum     =  0.0;
   psolid->faces[5].sum    +=  psolid->pts[1].x;
   psolid->faces[5].sum    +=  psolid->pts[5].x;
@@ -92,6 +98,7 @@ void get_octahedron(Psolid *psolid)
   psolid->faces[6].pts[1]  = &psolid->pts[5];
   psolid->faces[6].pts[2]  = &psolid->pts[3];
   psolid->faces[6].pts[3]  =  NULL;
+  psolid->faces[6].id      =    6;
   psolid->faces[6].sum     =  0.0;
   psolid->faces[6].sum    +=  psolid->pts[2].x;
   psolid->faces[6].sum    +=  psolid->pts[5].x;
@@ -102,6 +109,7 @@ void get_octahedron(Psolid *psolid)
   psolid->faces[7].pts[1]  = &psolid->pts[5];
   psolid->faces[7].pts[2]  = &psolid->pts[0];
   psolid->faces[7].pts[3]  =  NULL;
+  psolid->faces[7].id      =    7;
   psolid->faces[7].sum     =  0.0;
   psolid->faces[7].sum    +=  psolid->pts[3].x;
   psolid->faces[7].sum    +=  psolid->pts[5].x;

@@ -34,6 +34,7 @@ typedef struct {
 } Point;
 
 typedef struct {
+  int                id;
   double            sum;
   int           colored;
   double        r, g, b;

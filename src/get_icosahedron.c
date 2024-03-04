@@ -49,6 +49,7 @@ void get_icosahedron(Psolid *psolid)
   psolid->faces[ 0].pts[1]  = &psolid->pts[11];
   psolid->faces[ 0].pts[2]  = &psolid->pts[ 8];
   psolid->faces[ 0].pts[3]  =  NULL;
+  psolid->faces[ 0].id      =    0;
   psolid->faces[ 0].sum     =  0.0;
   psolid->faces[ 0].sum    +=  psolid->pts[ 4].x;
   psolid->faces[ 0].sum    +=  psolid->pts[11].x;
@@ -59,6 +60,7 @@ void get_icosahedron(Psolid *psolid)
   psolid->faces[ 1].pts[1]  = &psolid->pts[ 8];
   psolid->faces[ 1].pts[2]  = &psolid->pts[ 0];
   psolid->faces[ 1].pts[3]  =  NULL;
+  psolid->faces[ 1].id      =    1;
   psolid->faces[ 1].sum     =  0.0;
   psolid->faces[ 1].sum    +=  psolid->pts[ 4].x;
   psolid->faces[ 1].sum    +=  psolid->pts[ 8].x;
@@ -69,6 +71,7 @@ void get_icosahedron(Psolid *psolid)
   psolid->faces[ 2].pts[1]  = &psolid->pts[ 0];
   psolid->faces[ 2].pts[2]  = &psolid->pts[ 5];
   psolid->faces[ 2].pts[3]  =  NULL;
+  psolid->faces[ 2].id      =    2;
   psolid->faces[ 2].sum     =  0.0;
   psolid->faces[ 2].sum    +=  psolid->pts[ 4].x;
   psolid->faces[ 2].sum    +=  psolid->pts[ 0].x;
@@ -79,6 +82,7 @@ void get_icosahedron(Psolid *psolid)
   psolid->faces[ 3].pts[1]  = &psolid->pts[ 5];
   psolid->faces[ 3].pts[2]  = &psolid->pts[ 1];
   psolid->faces[ 3].pts[3]  =  NULL;
+  psolid->faces[ 3].id      =    3;
   psolid->faces[ 3].sum     =  0.0;
   psolid->faces[ 3].sum    +=  psolid->pts[ 4].x;
   psolid->faces[ 3].sum    +=  psolid->pts[ 5].x;
@@ -89,6 +93,7 @@ void get_icosahedron(Psolid *psolid)
   psolid->faces[ 4].pts[1]  = &psolid->pts[ 1];
   psolid->faces[ 4].pts[2]  = &psolid->pts[11];
   psolid->faces[ 4].pts[3]  =  NULL;
+  psolid->faces[ 4].id      =    4;
   psolid->faces[ 4].sum     =  0.0;
   psolid->faces[ 4].sum    +=  psolid->pts[ 4].x;
   psolid->faces[ 4].sum    +=  psolid->pts[ 1].x;
@@ -99,6 +104,7 @@ void get_icosahedron(Psolid *psolid)
   psolid->faces[ 5].pts[1]  = &psolid->pts[11];
   psolid->faces[ 5].pts[2]  = &psolid->pts[ 1];
   psolid->faces[ 5].pts[3]  =  NULL;
+  psolid->faces[ 5].id      =    5;
   psolid->faces[ 5].sum     =  0.0;
   psolid->faces[ 5].sum    +=  psolid->pts[ 2].x;
   psolid->faces[ 5].sum    +=  psolid->pts[11].x;
@@ -109,6 +115,7 @@ void get_icosahedron(Psolid *psolid)
   psolid->faces[ 6].pts[1]  = &psolid->pts[ 1];
   psolid->faces[ 6].pts[2]  = &psolid->pts[10];
   psolid->faces[ 6].pts[3]  =  NULL;
+  psolid->faces[ 6].id      =    6;
   psolid->faces[ 6].sum     =  0.0;
   psolid->faces[ 6].sum    +=  psolid->pts[ 2].x;
   psolid->faces[ 6].sum    +=  psolid->pts[ 1].x;
@@ -119,6 +126,7 @@ void get_icosahedron(Psolid *psolid)
   psolid->faces[ 7].pts[1]  = &psolid->pts[10];
   psolid->faces[ 7].pts[2]  = &psolid->pts[ 6];
   psolid->faces[ 7].pts[3]  =  NULL;
+  psolid->faces[ 7].id      =    7;
   psolid->faces[ 7].sum     =  0.0;
   psolid->faces[ 7].sum    +=  psolid->pts[ 2].x;
   psolid->faces[ 7].sum    +=  psolid->pts[10].x;
@@ -129,6 +137,7 @@ void get_icosahedron(Psolid *psolid)
   psolid->faces[ 8].pts[1]  = &psolid->pts[ 6];
   psolid->faces[ 8].pts[2]  = &psolid->pts[ 7];
   psolid->faces[ 8].pts[3]  =  NULL;
+  psolid->faces[ 8].id      =    8;
   psolid->faces[ 8].sum     =  0.0;
   psolid->faces[ 8].sum    +=  psolid->pts[ 2].x;
   psolid->faces[ 8].sum    +=  psolid->pts[ 6].x;
@@ -139,6 +148,7 @@ void get_icosahedron(Psolid *psolid)
   psolid->faces[ 9].pts[1]  = &psolid->pts[ 7];
   psolid->faces[ 9].pts[2]  = &psolid->pts[11];
   psolid->faces[ 9].pts[3]  =  NULL;
+  psolid->faces[ 9].id      =    9;
   psolid->faces[ 9].sum     =  0.0;
   psolid->faces[ 9].sum    +=  psolid->pts[ 2].x;
   psolid->faces[ 9].sum    +=  psolid->pts[ 7].x;
@@ -149,6 +159,7 @@ void get_icosahedron(Psolid *psolid)
   psolid->faces[10].pts[1]  = &psolid->pts[ 8];
   psolid->faces[10].pts[2]  = &psolid->pts[ 7];
   psolid->faces[10].pts[3]  =  NULL;
+  psolid->faces[10].id      =   10;
   psolid->faces[10].sum     =  0.0;
   psolid->faces[10].sum    +=  psolid->pts[ 3].x;
   psolid->faces[10].sum    +=  psolid->pts[ 8].x;
@@ -159,6 +170,7 @@ void get_icosahedron(Psolid *psolid)
   psolid->faces[11].pts[1]  = &psolid->pts[ 7];
   psolid->faces[11].pts[2]  = &psolid->pts[ 6];
   psolid->faces[11].pts[3]  =  NULL;
+  psolid->faces[11].id      =   11;
   psolid->faces[11].sum     =  0.0;
   psolid->faces[11].sum    +=  psolid->pts[ 3].x;
   psolid->faces[11].sum    +=  psolid->pts[ 7].x;
@@ -169,6 +181,7 @@ void get_icosahedron(Psolid *psolid)
   psolid->faces[12].pts[1]  = &psolid->pts[ 6];
   psolid->faces[12].pts[2]  = &psolid->pts[ 9];
   psolid->faces[12].pts[3]  =  NULL;
+  psolid->faces[12].id      =   12;
   psolid->faces[12].sum     =  0.0;
   psolid->faces[12].sum    +=  psolid->pts[ 3].x;
   psolid->faces[12].sum    +=  psolid->pts[ 6].x;
@@ -179,6 +192,7 @@ void get_icosahedron(Psolid *psolid)
   psolid->faces[13].pts[1]  = &psolid->pts[ 9];
   psolid->faces[13].pts[2]  = &psolid->pts[ 0];
   psolid->faces[13].pts[3]  =  NULL;
+  psolid->faces[13].id      =   13;
   psolid->faces[13].sum     =  0.0;
   psolid->faces[13].sum    +=  psolid->pts[ 3].x;
   psolid->faces[13].sum    +=  psolid->pts[ 9].x;
@@ -189,6 +203,7 @@ void get_icosahedron(Psolid *psolid)
   psolid->faces[14].pts[1]  = &psolid->pts[ 0];
   psolid->faces[14].pts[2]  = &psolid->pts[ 8];
   psolid->faces[14].pts[3]  =  NULL;
+  psolid->faces[14].id      =   14;
   psolid->faces[14].sum     =  0.0;
   psolid->faces[14].sum    +=  psolid->pts[ 3].x;
   psolid->faces[14].sum    +=  psolid->pts[ 0].x;
@@ -199,6 +214,7 @@ void get_icosahedron(Psolid *psolid)
   psolid->faces[15].pts[1]  = &psolid->pts[ 9];
   psolid->faces[15].pts[2]  = &psolid->pts[ 5];
   psolid->faces[15].pts[3]  =  NULL;
+  psolid->faces[15].id      =   15;
   psolid->faces[15].sum     =  0.0;
   psolid->faces[15].sum    +=  psolid->pts[ 0].x;
   psolid->faces[15].sum    +=  psolid->pts[ 9].x;
@@ -209,6 +225,7 @@ void get_icosahedron(Psolid *psolid)
   psolid->faces[16].pts[1]  = &psolid->pts[ 1];
   psolid->faces[16].pts[2]  = &psolid->pts[ 5];
   psolid->faces[16].pts[3]  =  NULL;
+  psolid->faces[16].id      =   16;
   psolid->faces[16].sum     =  0.0;
   psolid->faces[16].sum    +=  psolid->pts[10].x;
   psolid->faces[16].sum    +=  psolid->pts[ 1].x;
@@ -219,6 +236,7 @@ void get_icosahedron(Psolid *psolid)
   psolid->faces[17].pts[1]  = &psolid->pts[ 5];
   psolid->faces[17].pts[2]  = &psolid->pts[ 9];
   psolid->faces[17].pts[3]  =  NULL;
+  psolid->faces[17].id      =   17;
   psolid->faces[17].sum     =  0.0;
   psolid->faces[17].sum    +=  psolid->pts[10].x;
   psolid->faces[17].sum    +=  psolid->pts[ 5].x;
@@ -229,6 +247,7 @@ void get_icosahedron(Psolid *psolid)
   psolid->faces[18].pts[1]  = &psolid->pts[ 9];
   psolid->faces[18].pts[2]  = &psolid->pts[ 6];
   psolid->faces[18].pts[3]  =  NULL;
+  psolid->faces[18].id      =   18;
   psolid->faces[18].sum     =  0.0;
   psolid->faces[18].sum     =  psolid->pts[10].x;
   psolid->faces[18].sum     =  psolid->pts[ 9].x;
@@ -239,6 +258,7 @@ void get_icosahedron(Psolid *psolid)
   psolid->faces[19].pts[1]  = &psolid->pts[ 7];
   psolid->faces[19].pts[2]  = &psolid->pts[ 8];
   psolid->faces[19].pts[3]  =  NULL;
+  psolid->faces[19].id      =   19;
   psolid->faces[19].sum     =  0.0;
   psolid->faces[19].sum    +=  psolid->pts[11].x;
   psolid->faces[19].sum    +=  psolid->pts[ 7].x;

@@ -85,6 +85,7 @@ void get_dodecahedron(Psolid *psolid)
   psolid->faces[ 0].pts[3]  = &psolid->pts[ 9];
   psolid->faces[ 0].pts[4]  = &psolid->pts[ 1];
   psolid->faces[ 0].pts[5]  =  NULL;
+  psolid->faces[ 0].id      =    0;
   psolid->faces[ 0].sum     =  0.0;
   psolid->faces[ 0].sum    +=  psolid->pts[12].x;
   psolid->faces[ 0].sum    +=  psolid->pts[ 0].x;
@@ -99,6 +100,7 @@ void get_dodecahedron(Psolid *psolid)
   psolid->faces[ 1].pts[3]  = &psolid->pts[ 5];
   psolid->faces[ 1].pts[4]  = &psolid->pts[ 9];
   psolid->faces[ 1].pts[5]  =  NULL;
+  psolid->faces[ 1].id      =    1;
   psolid->faces[ 1].sum     =  0.0;
   psolid->faces[ 1].sum    +=  psolid->pts[ 8].x;
   psolid->faces[ 1].sum    +=  psolid->pts[ 4].x;
@@ -113,6 +115,7 @@ void get_dodecahedron(Psolid *psolid)
   psolid->faces[ 2].pts[3]  = &psolid->pts[18];
   psolid->faces[ 2].pts[4]  = &psolid->pts[19];
   psolid->faces[ 2].pts[5]  =  NULL;
+  psolid->faces[ 2].id      =    2;
   psolid->faces[ 2].sum     =  0.0;
   psolid->faces[ 2].sum    +=  psolid->pts[ 1].x;
   psolid->faces[ 2].sum    +=  psolid->pts[ 9].x;
@@ -127,6 +130,7 @@ void get_dodecahedron(Psolid *psolid)
   psolid->faces[ 3].pts[3]  = &psolid->pts[ 6];
   psolid->faces[ 3].pts[4]  = &psolid->pts[10];
   psolid->faces[ 3].pts[5]  =  NULL;
+  psolid->faces[ 3].id      =    3;
   psolid->faces[ 3].sum     =  0.0;
   psolid->faces[ 3].sum    +=  psolid->pts[ 2].x;
   psolid->faces[ 3].sum    +=  psolid->pts[19].x;
@@ -141,6 +145,7 @@ void get_dodecahedron(Psolid *psolid)
   psolid->faces[ 4].pts[3]  = &psolid->pts[11];
   psolid->faces[ 4].pts[4]  = &psolid->pts[ 3];
   psolid->faces[ 4].pts[5]  =  NULL;
+  psolid->faces[ 4].id      =    4;
   psolid->faces[ 4].sum     =  0.0;
   psolid->faces[ 4].sum    +=  psolid->pts[15].x;
   psolid->faces[ 4].sum    +=  psolid->pts[ 2].x;
@@ -155,6 +160,7 @@ void get_dodecahedron(Psolid *psolid)
   psolid->faces[ 5].pts[3]  = &psolid->pts[ 7];
   psolid->faces[ 5].pts[4]  = &psolid->pts[11];
   psolid->faces[ 5].pts[5]  =  NULL;
+  psolid->faces[ 5].id      =    5;
   psolid->faces[ 5].sum     =  0.0;
   psolid->faces[ 5].sum    +=  psolid->pts[10].x;
   psolid->faces[ 5].sum    +=  psolid->pts[ 6].x;
@@ -169,6 +175,7 @@ void get_dodecahedron(Psolid *psolid)
   psolid->faces[ 6].pts[3]  = &psolid->pts[17];
   psolid->faces[ 6].pts[4]  = &psolid->pts[16];
   psolid->faces[ 6].pts[5]  =  NULL;
+  psolid->faces[ 6].id      =    6;
   psolid->faces[ 6].sum     =  0.0;
   psolid->faces[ 6].sum    +=  psolid->pts[ 3].x;
   psolid->faces[ 6].sum    +=  psolid->pts[11].x;
@@ -183,6 +190,7 @@ void get_dodecahedron(Psolid *psolid)
   psolid->faces[ 7].pts[3]  = &psolid->pts[ 4];
   psolid->faces[ 7].pts[4]  = &psolid->pts[ 8];
   psolid->faces[ 7].pts[5]  =  NULL;
+  psolid->faces[ 7].id      =    7;
   psolid->faces[ 7].sum     =  0.0;
   psolid->faces[ 7].sum    +=  psolid->pts[ 0].x;
   psolid->faces[ 7].sum    +=  psolid->pts[16].x;
@@ -197,6 +205,7 @@ void get_dodecahedron(Psolid *psolid)
   psolid->faces[ 8].pts[3]  = &psolid->pts[ 0];
   psolid->faces[ 8].pts[4]  = &psolid->pts[12];
   psolid->faces[ 8].pts[5]  =  NULL;
+  psolid->faces[ 8].id      =    8;
   psolid->faces[ 8].sum     =  0.0;
   psolid->faces[ 8].sum    +=  psolid->pts[15].x;
   psolid->faces[ 8].sum    +=  psolid->pts[ 3].x;
@@ -211,6 +220,7 @@ void get_dodecahedron(Psolid *psolid)
   psolid->faces[ 9].pts[3]  = &psolid->pts[ 2];
   psolid->faces[ 9].pts[4]  = &psolid->pts[15];
   psolid->faces[ 9].pts[5]  =  NULL;
+  psolid->faces[ 9].id      =    9;
   psolid->faces[ 9].sum     =  0.0;
   psolid->faces[ 9].sum    +=  psolid->pts[12].x;
   psolid->faces[ 9].sum    +=  psolid->pts[ 1].x;
@@ -225,6 +235,7 @@ void get_dodecahedron(Psolid *psolid)
   psolid->faces[10].pts[3]  = &psolid->pts[13];
   psolid->faces[10].pts[4]  = &psolid->pts[ 4];
   psolid->faces[10].pts[5]  =  NULL;
+  psolid->faces[10].id      =   10;
   psolid->faces[10].sum     =  0.0;
   psolid->faces[10].sum    +=  psolid->pts[17].x;
   psolid->faces[10].sum    +=  psolid->pts[ 7].x;
@@ -239,6 +250,7 @@ void get_dodecahedron(Psolid *psolid)
   psolid->faces[11].pts[3]  = &psolid->pts[14];
   psolid->faces[11].pts[4]  = &psolid->pts[ 6];
   psolid->faces[11].pts[5]  =  NULL;
+  psolid->faces[11].id      =   11;
   psolid->faces[11].sum     =  0.0;
   psolid->faces[11].sum    +=  psolid->pts[18].x;
   psolid->faces[11].sum    +=  psolid->pts[ 5].x;

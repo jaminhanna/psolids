@@ -2,7 +2,7 @@ psolids: main.o getword.o getjgraph.o degtorad.o get_tetrahedron.o \
          get_hexahedron.o get_octahedron.o get_dodecahedron.o \
          get_icosahedron.o rotate.o get_sums.o sort_face.o \
          center_shape.o print_shape.o
-	cc obj/* -o bin/psolids
+	cc obj/* -o psolids
 main.o:
 	cc -Iinclude -c src/main.c -o obj/main.o
 getword.o:
