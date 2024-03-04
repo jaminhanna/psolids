@@ -37,18 +37,19 @@ projected onto a plane, creating an image.
 
 Psolids provides six commands with which one can edit the
 appearance of a platonic solid:
-
+  ```
   edgelength {double}
   center     {double double}
   roll       [degrees/radians] {double}
   pitch      [degrees/radians] {double}
   yaw        [degrees/radians] {double}
   faces      {integer}+ {color} {double double double}
-
-The `edgelength` command requires a double, the value of which is
-interpreted as being in units of points, as used by PostScript,
-where 72 points (the default edge length) is equivalent to one
-inch.
+  ```
+The `edgelength` command requires a double. If this command
+is not specified, a default value of 72.0 is used. Note that
+the size of the graph (i.e., the minimum and maximum values
+of the axes) together with 'edgelength' determine the size
+of a shape and therefore the size of its image.
 
 The `center` command is used to control where the image of a
 shape lies on its graph. It requires two doubles x and y where
@@ -70,19 +71,21 @@ perform two backflips, but end up in its original position.
 
 The `faces` command is used to modify the color of one or more
 faces of a shape. Following the 'faces' keyword, one or more
-face ids must follow (face ids being zero-indexed), where a
-face id is simply a number greater than or equal to one and
-less than the number of faces of the shape. For example, the
-valid face ids for a hexahedron (cube) are the integers 0-5.
-Face ids must be separated by whitespace (e.g., 0 1 3 5).
-Following the face ids of the faces whose colors are to be
-modified should be the keyword "color", which itself should
-be followed by three doubles, corresponding to rgb values.
-Therefore, if one wished to color red the faces 0, 1, 3, and
-5, the command would look close to the following:
+face ids must follow, where a face id is simply a number greater
+than or equal to zero and less than the number of faces of the
+shape. For example, the valid face ids for a hexahedron (cube)
+are the integers 0-5. Face ids must be separated by whitespace
+(e.g., 0 1 3 5). Following the face ids of the faces whose
+colors are to be modified should be the keyword `color`, which
+itself should be followed by three doubles, corresponding to
+rgb values. Therefore, if one wished to color red the faces
+0, 1, 3, and 5, the command would look as follows:
   ```
-  faces 0 1 3 5 color 1.0 0.0 0.0
+  faces 0 1 3 5 color 1 0 0
   ```
+The value 1 corresponds to the color white, and 0 corresponds
+to black.
+
 In addition to the above commands, psolids allows the user to
 modify the appearance of the overall shape using Jgraph
 commands. The following Jgraph commands are supported:
@@ -146,16 +149,17 @@ examples will give an idea of how to use psolids with jgraph
 and what can be accomplished with the program.
 
 The following is a Jgraph specification file that creates one of
-each of the five platonic solids:
+each of the five platonic solids, with centers being specified to
+prevent overlap of the images:
   ```
   newgraph
   xaxis min -100 max 100 nodraw
   yaxis min -100 max 100 nodraw
-  shell : echo newshape  tetrahedron center -235.0  0.0 \
-               newshape   hexahedron center -140.0  0.0 \
-               newshape   octahedron center  -30.0  0.0 \
-               newshape dodecahedron center   90.0  0.0 \
-               newshape  icosahedron center  215.0  0.0 | psolids
+  shell : echo newshape  tetrahedron center -235  0 \
+               newshape   hexahedron center -140  0 \
+               newshape   octahedron center  -30  0 \
+               newshape dodecahedron center   90  0 \
+               newshape  icosahedron center  215  0 | psolids
   ```
 The output will look something like the following (the image was manually
 cropped):
@@ -168,22 +172,18 @@ Jgraph would do its best to determine what those values should be,
 based on the points given to it. Leaving it to Jgraph to determine
 the axes tends to result in distorted images of the shapes. Second,
 the minimum and maximum values shown above were chosen randomly, and
-have an effect on the sizes of the images produced. Larger values
-lead to smaller images, and vice versa. It is not yet known what
-values must be chosen in order to produce images equivalent to
-PostScript points. Third, the `nodraw` keyword is a Jgraph
-graph editing command used so that the axis to which it applies is
-not drawn. Fourth, we are giving psolids nothing more than the
-name of the shape we wish to produce an image of, and a place to
+have an effect on the sizes of the images produced, as noted in the
+description of the `edgelength' command above. Larger values
+lead to smaller images, and vice versa. Third, the `nodraw` keyword
+is a Jgraph graph editing command used so that the axis to which it
+applies is not drawn. Fourth, we are giving psolids nothing more than
+the name of the shape we wish to produce an image of, and a place to
 put the image of that shape (determined as described above).
 Psolids attempts to make it easy to quickly generate a shape,
 while also allowing more complex editing through the use of
-Jgraph commands. Fifth, the values following the `center`
-keywords were specified as doubles only to reinforce the fact that
-this command takes two doubles. Specifying those values as
-integers would have produced the same result. Sixth, these values
-were chosen experimentally so as to provide an appropriate amount
-of spacing between each shape. Last, it can be seen psolids
+Jgraph commands. Fifth, these values corresponding to the 'center'
+commands were chosen experimentally so as to provide an appropriate
+amount of spacing between each shape. Lastly, it can be seen psolids
 chooses a random color for each face by default.
 
 The previous example revealed that psolids can take its input on
@@ -192,7 +192,7 @@ on the command line. Each file specified must either be empty or
 contain at least one valid shape specification. Psolids will
 print the image corresponding to each valid shape specification
 until it reaches an invalid specification, in which case it will
-flag the error and exit. The following example demonstrates
+flag the error and terminate. The following example demonstrates
 using psolids by specifying files on the command line as well as
 a few commands not shown in the previous example:
 
@@ -225,10 +225,74 @@ a few commands not shown in the previous example:
   $ jgraph -P j.in >junk.ps; open junk.ps
   ```
 
+Here is the output:
 
+![Alt_text](img/img2.jpg)
 
+One thing is worth nothing here. The matching of faces to
+face ids is more or less intuitive with the tetrahedron,
+hexahedron, and octahedron, but not at all with the dodecahedron
+and icosahedron. When there is time for it, an image will be
+provided that maps face ids to their corresponding faces. For
+the time being, this information can be deduced from the procedures
+  ```
+  get_tetrahedron()
+  get_hexahedron()
+  get_octahedron()
+  get_dodecahedron()
+  get_icosahedron()
+  ```
+Psolids formats its output in such a way so as to make it easy
+to interact with using ed commands. Each Jgraph command is put on
+its own line, and on each of these lines is a Jgraph comment that
+identifies the command as corresponding to a particular face of a
+particular shape. Thus, we can employ grep to look at and interact
+with particular parts of the output of psolids, as the following
+example demonstrates:
 
+  ```
+  $ echo newshape tetrahedron | psolids | head
+  (* 1,0 *)   newline poly
+  (* 1,0 *)   pcfill 0.387520 0.544867 0.084722
+  (* 1,0 *)   pts
+  (* 1,0 *)           0.000000    44.090815
+  (* 1,0 *)          36.000000   -14.696938
+  (* 1,0 *)         -36.000000   -14.696938
 
-
-
-
+  (* 1,1 *)   newline poly
+  (* 1,1 *)   pcfill 0.548829 0.418811 0.873585
+  (* 1,1 *)   pts
+  $
+  $ # the above shows the specification of the first face of the
+  $ # tetrahedron, and three lines of that of the second face.
+  $ # knowing how many points compose a face of a dodecahedron (five), we
+  $ # can easily view the locations of the vertices that compose
+  $ # the fifth face of the dodecahedron with default position and size:
+  $
+  $ echo newshape dodecahedron | psolids | grep '1,4' | tail -n 5
+  (* 1,4 *)           0.000000    47.124612
+  (* 1,4 *)          29.124612    29.124612
+  (* 1,4 *)          47.124612    18.000000
+  (* 1,4 *)          29.124612    29.124612
+  (* 1,4 *)           0.000000    47.124612
+  $
+  $ # the grep gave us the fifth face (since faces are zero-indexed) of
+  $ # the first shape. we used tail -n 5 since we knew the last five
+  $ # lines that contain the regular expression "1,4" correspond to the
+  $ # locations of the vertices
+  $
+  $ # get the colors (which will be random) of the last five faces
+  $ # (faces with face ids 15-19) of the default icosahedron:
+  $
+  $ echo newshape icosahedron | psolids | grep pcfill | tail -n 5
+  16	(* 1,15 *)   pcfill 0.476352 0.837873 0.252883
+  17	(* 1,16 *)   pcfill 0.336508 0.768383 0.892267
+  18	(* 1,17 *)   pcfill 0.936246 0.853985 0.328381
+  19	(* 1,18 *)   pcfill 0.357412 0.524081 0.731242
+  20	(* 1,19 *)   pcfill 0.447281 0.369753 0.055368
+  $
+  $ # lastly, create two identical octahedrons, with one up and to
+  $ # the right of the other, and remove a half from each to produce
+  $ # an image of a split octahedron with its halves separated:
+  $
+  $ 
