@@ -1,0 +1,23 @@
+newgraph
+xaxis min -100 max 100 nodraw
+yaxis min -100 max 100 nodraw
+
+shell : echo newshape hexahedron      >psolids.in
+shell : echo edgelength 234          >>psolids.in
+shell : echo linethickness 12        >>psolids.in
+shell : echo color 1 0.8 0.8         >>psolids.in
+shell : echo pfill -1                >>psolids.in
+shell : echo yaw degrees -9          >>psolids.in
+shell : echo pitch degrees -9        >>psolids.in
+shell : echo faces 5 color 1 0.8 0.8 >>psolids.in
+shell : ./psolids psolids.in
+
+shell : echo newshape hexahedron      >psolids.in
+shell : echo edgelength 201          >>psolids.in
+shell : echo linethickness 9         >>psolids.in
+shell : echo color 1 0.6 0.6         >>psolids.in
+shell : echo pfill -1                >>psolids.in
+shell : echo yaw degrees -9          >>psolids.in
+shell : echo pitch degrees -9        >>psolids.in
+shell : echo faces 5 color 1 0.6 0.6 >>psolids.in
+shell : ./psolids psolids.in
