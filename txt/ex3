@@ -1,0 +1,19 @@
+newgraph
+xaxis min -100 max 100 nodraw
+yaxis min -100 max 100 nodraw
+
+shell : echo newshape octahedron  >psolids.in
+shell : echo edgelength 180      >>psolids.in
+shell : echo linethickness 6     >>psolids.in
+shell : echo roll degrees -15    >>psolids.in
+shell : echo pitch degrees -15   >>psolids.in
+shell : echo yaw degrees -15     >>psolids.in
+
+shell : echo newshape octahedron >>psolids.in
+shell : echo edgelength 180      >>psolids.in
+shell : echo linethickness 6     >>psolids.in
+shell : echo roll degrees -15    >>psolids.in
+shell : echo pitch degrees -15   >>psolids.in
+shell : echo yaw degrees -15     >>psolids.in
+shell : echo center 25 25        >>psolids.in
+shell : ./psolids psolids.in | grep -v '1,[0-3]' | grep -v '2,[4-7]'
