@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
     case 1  : name = "stdin"; stream = stdin;                 break;
     default : name = argv[1]; stream = fopen(argv[1],   "r"); break;
   }
-  for (i = 1; stream != NULL; stream = fopen(argv[i++], "r")) {
+  for (i = 2; stream != NULL; stream = fopen(argv[i++], "r")) {
     if ((len = getword()) == 0) { /* no word to read */
       if (i == argc) return EXIT_SUCCESS; /* no more files */
       continue; /* ignore empty files */
