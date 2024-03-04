@@ -1,6 +1,6 @@
 FOR THE TA (COMPILATION INSTRUCTIONS):
   - type make
-  - look in img/ for example images ex1, ex2, ..., ex5
+  - look in img/ for example images ex1.pdf, ex2.pdf, ..., ex5.pdf
 
 Psolids is a filter for generating platonic solid specifications in the
 form of input to Jgraph, a filter for plotting graphs in PostScript:
