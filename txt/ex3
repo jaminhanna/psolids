@@ -16,4 +16,4 @@ shell : echo roll degrees -15    >>psolids.in
 shell : echo pitch degrees -15   >>psolids.in
 shell : echo yaw degrees -15     >>psolids.in
 shell : echo center 25 25        >>psolids.in
-shell : ./psolids psolids.in | grep -v '[13],[0-3]' | grep -v [24],[4-7]'
+shell : ./psolids psolids.in | grep -v '[13],[0-3]' | grep -v '[4],[4-7]'
